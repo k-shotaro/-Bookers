@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Booker</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SampleAppDemo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+   　<% flash.each do |key, value| %>
+     <% if key.to_s == "notice" %>
+     <p id="notice"><%= value %></p>
+      <% end %>
+     <% flash.discard(key) %>
+     <% end %>
+
+<%= yield %>
+</main>
   </body>
 </html>
