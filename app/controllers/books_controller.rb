@@ -28,7 +28,6 @@ class BooksController < ApplicationController
       @books = Book.all
       render :index
      end
-
     end
 
     def update
@@ -52,6 +51,6 @@ class BooksController < ApplicationController
   private
 
     def book_params
-      params.require(:book).permit(:title, :body)
+     params.require(:book).permit(:title, :body)
     end
 end
